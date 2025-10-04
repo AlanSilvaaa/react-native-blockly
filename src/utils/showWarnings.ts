@@ -55,7 +55,7 @@ export function blockInToolbox(blocks: Block[], toolbox: Toolbox | null): void {
 }
 
 /**
- * Validates if blocks with custom code have return statements and shows warnings for missing returns
+ * Validates if blocks with custom code have a return statement and shows warnings for missing returns
  * 
  * @param blocks - Array of block definitions
  */

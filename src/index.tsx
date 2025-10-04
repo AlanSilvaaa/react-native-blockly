@@ -35,15 +35,13 @@ export default function BlocklyView({ Blockly, Config, onMessage }: BlocklyViewP
   blockInToolbox(Blockly.getBlocks(), Config.getToolbox());
   noReturnStatement(Blockly.getBlocks());
 
-  // TODO: do something with the onMessage callback. Pass it to the BlocklyView 
-  // component or something like that.
   return (
     <WebView
       originWhitelist={['*']}
       source={{ html: blocklyHtml, baseUrl: 'file:///android_asset/' }}
       style={{ flex: 1 }}
       onMessage={(event) => {
-        console.log('Message received from webview:', event.nativeEvent.data);
+        // console.log('Message received from webview:', event.nativeEvent.data);
         if (onMessage) {
           onMessage(event.nativeEvent.data); // Call the callback with the data
         }

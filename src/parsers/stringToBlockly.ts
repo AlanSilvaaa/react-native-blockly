@@ -80,7 +80,7 @@ export function stringToBlockly(blocks: string, toolbox: string, workspace: stri
         const code = Blockly.JavaScript.workspaceToCode(workspace);
         console.log('Generated Code:', code); // For debugging
         try {
-          eval(code); // Execute the code
+          // eval(code); // Execute the code
           window.ReactNativeWebView.postMessage(code); // Send the code to the app
         } catch (error) {
           alert('Error: ' + error.message);

@@ -53,11 +53,15 @@ config.setWorkspace({
   trashcan: true
 });
 
+function onMessage(data: string) {
+  console.log('Message from Blockly:', data);
+}
+
 // TODO: when wrapping the BlocklyView component into a <View> component
 // the webview does not render properly
 export default function App() {
   return (
-    <BlocklyView Blockly={blockly} Config={config} />
+    <BlocklyView Blockly={blockly} Config={config} onMessage={onMessage} />
   );
 }
 
