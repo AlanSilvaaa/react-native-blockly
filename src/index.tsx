@@ -3,7 +3,7 @@ import type { BlocklyViewProps } from "./types/blockly-view-types";
 import { parseBlocksToString, parseToolboxToString, parseWorkspaceToString } from "./parsers/parseToString";
 import { stringToBlockly } from "./parsers/stringToBlockly";
 import { Blockly } from "./classes/blockly";
-import { blockInToolbox } from "./utils/showWarnings";
+import { blockInToolbox, noReturnStatement } from "./utils/showWarnings";
 
 // Export the Blockly class so it can be imported by users
 export { Blockly };
@@ -32,6 +32,7 @@ export default function BlocklyView({ Blockly, onMessage }: BlocklyViewProps) {
    * Show warnings
    */
   blockInToolbox(Blockly.getBlocks(), Blockly.getToolbox());
+  noReturnStatement(Blockly.getBlocks());
 
   return (
     <WebView
@@ -40,9 +41,9 @@ export default function BlocklyView({ Blockly, onMessage }: BlocklyViewProps) {
       style={{ flex: 1 }}
       onMessage={(event) => {
         console.log('Message received from webview:', event.nativeEvent.data);
-        // if (onMessage) {
-        //   onMessage(event.nativeEvent.data); // Call the callback with the data
-        // }
+        if (onMessage) {
+          onMessage(event.nativeEvent.data); // Call the callback with the data
+        }
       }}
     />
   );

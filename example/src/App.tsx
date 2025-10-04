@@ -8,7 +8,8 @@ blockly.createBlock({
   output: null,
   colour: 230,
   tooltip: 'Command to move forward',
-  helpUrl: ''
+  helpUrl: '',
+  code: 'return "Hello from the moveForward block!"'
 });
 blockly.createBlock({
   type: 'moveBackward',
@@ -16,7 +17,7 @@ blockly.createBlock({
   output: null,
   colour: 230,
   tooltip: 'Command to move backward',
-  helpUrl: ''
+  helpUrl: '',
 });
 
 blockly.setToolbox({

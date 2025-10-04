@@ -23,7 +23,7 @@ export function parseBlocksToString(blocks: Block[]): string {
       ]);
 
       javascript.javascriptGenerator.forBlock['${block.type}'] = function (block) {
-        return '${block.type}()\\n';
+        ${block.code ? `'${block.code}'` : `return '${block.type}()\\n'`};
       };
     `;
   });

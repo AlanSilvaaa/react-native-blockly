@@ -7,6 +7,7 @@ export type Block = {
   nextStatement?: null;
   helpUrl?: string;
   output?: boolean | null;
+  code?: string;
 };
 
 export type Toolbox = {
