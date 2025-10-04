@@ -1,9 +1,9 @@
-import type { Block, Toolbox } from "../types";
+import type { Block, Toolbox } from '../types/blockly-types';
 
 export class Blockly {
   blocks: Block[] = [];
   toolbox: Toolbox = { kind: '', contents: [] };
-  constructor(public name: string) { }
+  constructor(public name: string) {}
 
   greet(): string {
     return `Hello, ${this.name}!`;
@@ -17,7 +17,7 @@ export class Blockly {
 
   /**
    * Creates a blockly block and add it to the blocks array.
-   * 
+   *
    * @param block - Block object to be added to the blocks array
    */
   createBlock(block: Block): void {

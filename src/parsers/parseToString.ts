@@ -1,21 +1,21 @@
-import type { Block, Toolbox } from "./types";
+import type { Block, Toolbox } from '../types/blockly-types';
 
 /**
  * Parses the blocks array to a string representation.
- * 
+ *
  * @param blocks - array of Block objects
  * @returns a string representation of the blocks in JSON format
  */
 export function parseBlocksToString(blocks: Block[]): string {
-    let htmlString = "";
-    blocks.forEach((block: Block) => {
-        htmlString += `
+  let htmlString = '';
+  blocks.forEach((block: Block) => {
+    htmlString += `
       Blockly.defineBlocksWithJsonArray([
         {
           "type": "${block.type}",
           "message0": "${block.message0}",
           "colour": ${block.colour || 230},
-          "tooltip": "${block.tooltip || "No tooltip"}",
+          "tooltip": "${block.tooltip || 'No tooltip'}",
           "previousStatement": null,
           "nextStatement": null,
           "helpUrl": ""
@@ -26,16 +26,16 @@ export function parseBlocksToString(blocks: Block[]): string {
         return '${block.type}()\\n';
       };
     `;
-    });
-    return htmlString;
+  });
+  return htmlString;
 }
 
 /**
  * Parses the toolbox object to a string representation.
- * 
+ *
  * @param toolbox - toolbox object
  * @returns a string representation of the toolbox in JSON format
  */
 export function parseToolboxToString(toolbox: Toolbox): string {
-    return JSON.stringify(toolbox);
+  return JSON.stringify(toolbox);
 }

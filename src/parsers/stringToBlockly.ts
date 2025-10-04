@@ -1,3 +1,10 @@
+/**
+ * Main function to convert all of the characteristics of a Blockly instance into a string
+ *
+ * @param blocks blocks string
+ * @param toolbox toolbox string
+ * @returns a complete HTML string ready to be loaded in the WebView
+ */
 export function stringToBlockly(blocks: string, toolbox: string): string {
   return `
 <!DOCTYPE html>

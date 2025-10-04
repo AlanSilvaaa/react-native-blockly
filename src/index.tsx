@@ -1,17 +1,11 @@
 import WebView from "react-native-webview";
-import type { Block, Toolbox } from "./types";
-import { parseBlocksToString, parseToolboxToString } from "./parseToString";
-import { stringToBlockly } from "./stringToBlockly";
+import type { BlocklyViewProps } from "./types/blockly-view-types";
+import { parseBlocksToString, parseToolboxToString } from "./parsers/parseToString";
+import { stringToBlockly } from "./parsers/stringToBlockly";
 import { Blockly } from "./classes/blockly";
 
 // Export the Blockly class so it can be imported by users
 export { Blockly };
-
-// Define props type for the component
-type BlocklyViewProps = {
-  Blockly: Blockly;
-  onMessage?: (data: string) => void;
-};
 
 /**
  * BlocklyView wrapper for rendering the Blockly workspace.
