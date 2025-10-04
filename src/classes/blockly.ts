@@ -1,12 +1,10 @@
-import type { Block, Toolbox, Workspace } from '../types/blockly-types';
+import type { Block } from '../types/blockly-types';
 
 /**
  * Blockly class to manage blockly configuration.
  */
 export class Blockly {
   blocks: Block[] = [];
-  toolbox: Toolbox = { kind: '', contents: [] };
-  workspace: Workspace = { scrollbars: false, trashcan: false };
   constructor(public name: string) {}
 
   greet(): string {
@@ -30,21 +28,5 @@ export class Blockly {
 
   getBlocks(): Block[] {
     return this.blocks;
-  }
-
-  setToolbox(toolbox: Toolbox): void {
-    this.toolbox = toolbox;
-  }
-
-  getToolbox(): Toolbox {
-    return this.toolbox;
-  }
-
-  setWorkspace(workspace: Workspace): void {
-    this.workspace = workspace;
-  }
-
-  getWorkspace(): Workspace {
-    return this.workspace;
   }
 }

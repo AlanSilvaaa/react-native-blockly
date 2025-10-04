@@ -1,6 +1,7 @@
-import BlocklyView, { Blockly } from 'react-native-blockly';
+import BlocklyView, { Blockly, BlocklyViewConfig } from 'react-native-blockly';
 
 const blockly = new Blockly('MyBlockly');
+const config = new BlocklyViewConfig('MyConfig');
 
 blockly.createBlock({
   type: 'moveForward',
@@ -29,7 +30,7 @@ blockly.createBlock({
   code: `return "alert('hello from alert block')"\n`
 });
 
-blockly.setToolbox({
+config.setToolbox({
   kind: 'flyoutToolbox',
   contents: [
     {
@@ -47,7 +48,7 @@ blockly.setToolbox({
   ]
 });
 
-blockly.setWorkspace({
+config.setWorkspace({
   scrollbars: true,
   trashcan: true
 });
@@ -56,7 +57,7 @@ blockly.setWorkspace({
 // the webview does not render properly
 export default function App() {
   return (
-    <BlocklyView Blockly={blockly} />
+    <BlocklyView Blockly={blockly} Config={config} />
   );
 }
 

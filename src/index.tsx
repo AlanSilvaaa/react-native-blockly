@@ -3,35 +3,36 @@ import type { BlocklyViewProps } from "./types/blockly-view-types";
 import { parseBlocksToString, parseToolboxToString, parseWorkspaceToString } from "./parsers/parseToString";
 import { stringToBlockly } from "./parsers/stringToBlockly";
 import { Blockly } from "./classes/blockly";
+import { BlocklyViewConfig } from "./classes/blocklyViewConfig";
 import { blockInToolbox, noReturnStatement } from "./utils/showWarnings";
 
-// Export the Blockly class so it can be imported by users
-export { Blockly };
+// Export both classes so they can be imported by users
+export { Blockly, BlocklyViewConfig };
 
 /**
  * BlocklyView wrapper for rendering the Blockly workspace.
  * 
- * It takes an instance of the Blockly class and an optional onMessage callback and
+ * It takes an instance of the Blockly class, a BlocklyViewConfig instance, and an optional onMessage callback and
  * parses the contents to generate an HTML and load it on the WebView.
  * 
  * @param param0 - Props for the component
  * @returns JSX.Element
  */
-export default function BlocklyView({ Blockly, onMessage }: BlocklyViewProps) {
+export default function BlocklyView({ Blockly, Config, onMessage }: BlocklyViewProps) {
 
   /**
-   * parse the contents of the Blockly instance to generate the HTML string
+   * parse the contents of the Blockly instance and Config to generate the HTML string
    * that will be loaded in the WebView.
    */
   const blocks = parseBlocksToString(Blockly.getBlocks());
-  const toolbox = parseToolboxToString(Blockly.getToolbox());
-  const workspace = parseWorkspaceToString(Blockly.getWorkspace());
+  const toolbox = parseToolboxToString(Config.getToolbox());
+  const workspace = parseWorkspaceToString(Config.getWorkspace());
   const blocklyHtml = stringToBlockly(blocks, toolbox, workspace);
 
   /**
    * Show warnings
    */
-  blockInToolbox(Blockly.getBlocks(), Blockly.getToolbox());
+  blockInToolbox(Blockly.getBlocks(), Config.getToolbox());
   noReturnStatement(Blockly.getBlocks());
 
   // TODO: do something with the onMessage callback. Pass it to the BlocklyView 
