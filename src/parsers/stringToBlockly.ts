@@ -3,9 +3,10 @@
  *
  * @param blocks blocks string
  * @param toolbox toolbox string
+ * @param workspace workspace string (JSON stringified workspace configuration)
  * @returns a complete HTML string ready to be loaded in the WebView
  */
-export function stringToBlockly(blocks: string, toolbox: string): string {
+export function stringToBlockly(blocks: string, toolbox: string, workspace: string): string {
   return `
 <!DOCTYPE html>
 <html>
@@ -65,11 +66,13 @@ export function stringToBlockly(blocks: string, toolbox: string): string {
       // Define the toolbox with the custom block
       const toolbox = ${toolbox || `{}`};
 
+      // Parse workspace configuration
+      const workspaceConfig = ${workspace || `{}`};
+
       // Inject Blockly into the workspace
       const workspace = Blockly.inject('blocklyDiv', {
         toolbox: toolbox,
-        scrollbars: true,
-        trashcan: true,
+        ...workspaceConfig,
       });
 
       // Run the code when the button is clicked

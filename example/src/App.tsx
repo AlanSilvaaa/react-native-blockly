@@ -1,5 +1,3 @@
-import WebView from 'react-native-webview';
-import { Text, View, StyleSheet } from 'react-native';
 import BlocklyView, { Blockly } from 'react-native-blockly';
 
 const blockly = new Blockly('MyBlockly');
@@ -20,7 +18,6 @@ blockly.createBlock({
   tooltip: 'Command to move backward',
   helpUrl: ''
 });
-console.log("This is a test of the Blockly class:", blockly.greet());
 
 blockly.setToolbox({
   kind: 'flyoutToolbox',
@@ -34,6 +31,11 @@ blockly.setToolbox({
       type: 'moveBackward'
     }
   ]
+});
+
+blockly.setWorkspace({
+  scrollbars: true,
+  trashcan: true
 });
 
 // TODO: when wrapping the BlocklyView component into a <View> component

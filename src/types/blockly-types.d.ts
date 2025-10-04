@@ -7,7 +7,7 @@ export type Block = {
   nextStatement?: null;
   helpUrl?: string;
   output?: boolean | null;
-}
+};
 
 export type Toolbox = {
   kind: string;
@@ -15,4 +15,9 @@ export type Toolbox = {
     kind: string;
     type: string;
   }>;
-}
+};
+
+export type Workspace = {
+  scrollbars: boolean;
+  trashcan: boolean;
+};

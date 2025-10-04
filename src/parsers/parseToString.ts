@@ -1,4 +1,4 @@
-import type { Block, Toolbox } from '../types/blockly-types';
+import type { Block, Toolbox, Workspace } from '../types/blockly-types';
 
 /**
  * Parses the blocks array to a string representation.
@@ -38,4 +38,14 @@ export function parseBlocksToString(blocks: Block[]): string {
  */
 export function parseToolboxToString(toolbox: Toolbox): string {
   return JSON.stringify(toolbox);
+}
+
+/**
+ * Parses the workspace object to a string representation.
+ *
+ * @param workspace - workspace object
+ * @returns a string representation of the workspace in JSON format
+ */
+export function parseWorkspaceToString(workspace: Workspace): string {
+  return JSON.stringify(workspace);
 }

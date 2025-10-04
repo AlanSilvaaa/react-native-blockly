@@ -1,6 +1,6 @@
 import WebView from "react-native-webview";
 import type { BlocklyViewProps } from "./types/blockly-view-types";
-import { parseBlocksToString, parseToolboxToString } from "./parsers/parseToString";
+import { parseBlocksToString, parseToolboxToString, parseWorkspaceToString } from "./parsers/parseToString";
 import { stringToBlockly } from "./parsers/stringToBlockly";
 import { Blockly } from "./classes/blockly";
 import { blockInToolbox } from "./utils/showWarnings";
@@ -25,7 +25,8 @@ export default function BlocklyView({ Blockly, onMessage }: BlocklyViewProps) {
    */
   const blocks = parseBlocksToString(Blockly.getBlocks());
   const toolbox = parseToolboxToString(Blockly.getToolbox());
-  const blocklyHtml = stringToBlockly(blocks, toolbox);
+  const workspace = parseWorkspaceToString(Blockly.getWorkspace());
+  const blocklyHtml = stringToBlockly(blocks, toolbox, workspace);
 
   /**
    * Show warnings
