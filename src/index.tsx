@@ -34,6 +34,8 @@ export default function BlocklyView({ Blockly, onMessage }: BlocklyViewProps) {
   blockInToolbox(Blockly.getBlocks(), Blockly.getToolbox());
   noReturnStatement(Blockly.getBlocks());
 
+  // TODO: do something with the onMessage callback. Pass it to the BlocklyView 
+  // component or something like that.
   return (
     <WebView
       originWhitelist={['*']}

@@ -2,6 +2,11 @@ import type { Block, Toolbox, Workspace } from '../types/blockly-types';
 
 /**
  * Parses the blocks array to a string representation.
+ * 
+ * If the block has a 'code' property, it uses that as the code generation logic.
+ * Otherwise, it defaults to returning a function call with the block type name.
+ * e.g. for a block of type 'moveForward', it will generate code: `return 'moveForward()\n'`; if
+ * no code property is provided.
  *
  * @param blocks - array of Block objects
  * @returns a string representation of the blocks in JSON format
@@ -23,7 +28,7 @@ export function parseBlocksToString(blocks: Block[]): string {
       ]);
 
       javascript.javascriptGenerator.forBlock['${block.type}'] = function (block) {
-        ${block.code ? `'${block.code}'` : `return '${block.type}()\\n'`};
+        ${block.code ? block.code : `return '${block.type}()\\n'`};
       };
     `;
   });

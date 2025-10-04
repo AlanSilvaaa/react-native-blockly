@@ -19,6 +19,15 @@ blockly.createBlock({
   tooltip: 'Command to move backward',
   helpUrl: '',
 });
+blockly.createBlock({
+  type: 'alert',
+  message0: 'Show Alert',
+  output: null,
+  colour: 230,
+  tooltip: 'Command to show an alert',
+  helpUrl: '',
+  code: `return "alert('hello from alert block')"\n`
+});
 
 blockly.setToolbox({
   kind: 'flyoutToolbox',
@@ -30,6 +39,10 @@ blockly.setToolbox({
     {
       kind: 'block',
       type: 'moveBackward'
+    },
+    {
+      kind: 'block',
+      type: 'alert'
     }
   ]
 });
