@@ -5,11 +5,6 @@ import type { Block } from '../types/blockly-types';
  */
 export class Blockly {
   blocks: Block[] = [];
-  constructor(public name: string) {}
-
-  greet(): string {
-    return `Hello, ${this.name}!`;
-  }
 
   // TODO: create a new method called createBlocks that takes an array of Block objects
   // and adds them to the blocks array

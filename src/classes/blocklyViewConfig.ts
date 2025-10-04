@@ -3,11 +3,6 @@ import type { Toolbox, Workspace } from '../types/blockly-types';
 export class BlocklyViewConfig {
   toolbox: Toolbox = { kind: '', contents: [] };
   workspace: Workspace = { scrollbars: false, trashcan: false };
-  constructor(public name: string) {}
-
-  greet(): string {
-    return `Hello, ${this.name}!`;
-  }
 
   setToolbox(toolbox: Toolbox): void {
     this.toolbox = toolbox;

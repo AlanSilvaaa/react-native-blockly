@@ -1,7 +1,7 @@
 import BlocklyView, { Blockly, BlocklyViewConfig } from 'react-native-blockly';
 
-const blockly = new Blockly('MyBlockly');
-const config = new BlocklyViewConfig('MyConfig');
+const blockly = new Blockly();
+const config = new BlocklyViewConfig();
 
 blockly.createBlock({
   type: 'moveForward',
