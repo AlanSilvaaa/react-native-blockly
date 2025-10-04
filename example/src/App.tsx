@@ -4,10 +4,6 @@ import BlocklyView, { Blockly } from 'react-native-blockly';
 
 const blockly = new Blockly('MyBlockly');
 
-
-
-// TODO: remember that the toolbox also has to be modified to include both custom blocks.
-// It would be great to add a warning if any of the blocks are not defined in the toolbox.
 blockly.createBlock({
   type: 'moveForward',
   message0: 'Move Forward',

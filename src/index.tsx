@@ -3,6 +3,7 @@ import type { BlocklyViewProps } from "./types/blockly-view-types";
 import { parseBlocksToString, parseToolboxToString } from "./parsers/parseToString";
 import { stringToBlockly } from "./parsers/stringToBlockly";
 import { Blockly } from "./classes/blockly";
+import { blockInToolbox } from "./utils/showWarnings";
 
 // Export the Blockly class so it can be imported by users
 export { Blockly };
@@ -25,6 +26,11 @@ export default function BlocklyView({ Blockly, onMessage }: BlocklyViewProps) {
   const blocks = parseBlocksToString(Blockly.getBlocks());
   const toolbox = parseToolboxToString(Blockly.getToolbox());
   const blocklyHtml = stringToBlockly(blocks, toolbox);
+
+  /**
+   * Show warnings
+   */
+  blockInToolbox(Blockly.getBlocks(), Blockly.getToolbox());
 
   return (
     <WebView
