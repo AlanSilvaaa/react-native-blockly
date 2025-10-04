@@ -1,4 +1,4 @@
-export function stringToBlockly(blocks: string): string {
+export function stringToBlockly(blocks: string, toolbox: string): string {
   return `
 <!DOCTYPE html>
 <html>
@@ -56,19 +56,7 @@ export function stringToBlockly(blocks: string): string {
       ${blocks ?? ''}
 
       // Define the toolbox with the custom block
-      const toolbox = {
-        kind: 'flyoutToolbox',
-        contents: [
-          {
-            kind: 'block',
-            type: 'moveForward',
-          },
-          {
-            kind: 'block',
-            type: 'moveBackward',
-          },
-        ],
-      };
+      const toolbox = ${toolbox || `{}`};
 
       // Inject Blockly into the workspace
       const workspace = Blockly.inject('blocklyDiv', {

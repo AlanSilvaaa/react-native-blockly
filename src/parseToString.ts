@@ -1,9 +1,14 @@
-import type { Blockly } from "react-native-blockly";
-import type { Block } from "./types";
+import type { Block, Toolbox } from "./types";
 
-export function parseToString(Blockly: Blockly): string {
+/**
+ * Parses the blocks array to a string representation.
+ * 
+ * @param blocks - array of Block objects
+ * @returns a string representation of the blocks in JSON format
+ */
+export function parseBlocksToString(blocks: Block[]): string {
     let htmlString = "";
-    Blockly.getBlocks().forEach((block: Block) => {
+    blocks.forEach((block: Block) => {
         htmlString += `
       Blockly.defineBlocksWithJsonArray([
         {
@@ -23,4 +28,14 @@ export function parseToString(Blockly: Blockly): string {
     `;
     });
     return htmlString;
+}
+
+/**
+ * Parses the toolbox object to a string representation.
+ * 
+ * @param toolbox - toolbox object
+ * @returns a string representation of the toolbox in JSON format
+ */
+export function parseToolboxToString(toolbox: Toolbox): string {
+    return JSON.stringify(toolbox);
 }

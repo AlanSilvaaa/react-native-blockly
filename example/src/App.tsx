@@ -26,6 +26,20 @@ blockly.createBlock({
 });
 console.log("This is a test of the Blockly class:", blockly.greet());
 
+blockly.setToolbox({
+  kind: 'flyoutToolbox',
+  contents: [
+    {
+      kind: 'block',
+      type: 'moveForward'
+    },
+    {
+      kind: 'block',
+      type: 'moveBackward'
+    }
+  ]
+});
+
 // TODO: when wrapping the BlocklyView component into a <View> component
 // the webview does not render properly
 export default function App() {
