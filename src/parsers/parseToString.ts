@@ -1,4 +1,5 @@
 import type { Block, Toolbox, Workspace } from '../types/blockly-types';
+import type { BlocklyStyles } from '../types/css';
 
 /**
  * Parses the blocks array to a string representation.
@@ -53,4 +54,66 @@ export function parseToolboxToString(toolbox: Toolbox): string {
  */
 export function parseWorkspaceToString(workspace: Workspace): string {
   return JSON.stringify(workspace);
+}
+
+/**
+ * Converts a CSS properties object to a CSS string
+ * 
+ * @param properties - CSS properties object
+ * @returns CSS string representation
+ */
+function propertiesToCssString(properties: React.CSSProperties): string {
+  return Object.entries(properties)
+    .map(([key, value]) => {
+      const cssKey = key.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`);
+      return `${cssKey}: ${value};`;
+    })
+    .join('\n        ');
+}
+
+/**
+ * Converts BlocklyStyles object to CSS string for injection into HTML
+ * 
+ * @param styles - BlocklyStyles configuration object
+ * @returns CSS string ready to be injected into style tag
+ */
+export function stylesToCss(styles: BlocklyStyles): string {
+  let css = '';
+
+  if (styles.body) {
+    css += `
+      body {
+        ${propertiesToCssString(styles.body)}
+      }`;
+  }
+
+  if (styles.blocklyDiv) {
+    css += `
+      #blocklyDiv {
+        ${propertiesToCssString(styles.blocklyDiv)}
+      }`;
+  }
+
+  if (styles.button) {
+    css += `
+      button {
+        ${propertiesToCssString(styles.button)}
+      }`;
+  }
+
+  if (styles.buttonHover) {
+    css += `
+      button:hover {
+        ${propertiesToCssString(styles.buttonHover)}
+      }`;
+  }
+
+  if (styles.heading) {
+    css += `
+      h1 {
+        ${propertiesToCssString(styles.heading)}
+      }`;
+  }
+
+  return css;
 }

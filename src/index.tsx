@@ -5,6 +5,7 @@ import { stringToBlockly } from "./parsers/stringToBlockly";
 import { Blockly } from "./classes/blockly";
 import { BlocklyViewConfig } from "./classes/blocklyViewConfig";
 import { blockInToolbox, noReturnStatement } from "./utils/showWarnings";
+import { stylesToCss } from "./parsers/parseToString";
 
 // Export both classes so they can be imported by users
 export { Blockly, BlocklyViewConfig };
@@ -27,7 +28,8 @@ export default function BlocklyView({ Blockly, Config, onMessage }: BlocklyViewP
   const blocks = parseBlocksToString(Blockly.getBlocks());
   const toolbox = parseToolboxToString(Config.getToolbox());
   const workspace = parseWorkspaceToString(Config.getWorkspace());
-  const blocklyHtml = stringToBlockly(blocks, toolbox, workspace);
+  const cssStyles = stylesToCss(Config.getStyles());
+  const blocklyHtml = stringToBlockly(blocks, toolbox, workspace, cssStyles);
 
   /**
    * Show warnings

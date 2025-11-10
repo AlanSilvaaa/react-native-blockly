@@ -4,9 +4,10 @@
  * @param blocks blocks string
  * @param toolbox toolbox string
  * @param workspace workspace string (JSON stringified workspace configuration)
+ * @param cssStyles CSS styles string
  * @returns a complete HTML string ready to be loaded in the WebView
  */
-export function stringToBlockly(blocks: string, toolbox: string, workspace: string): string {
+export function stringToBlockly(blocks: string, toolbox: string, workspace: string, cssStyles: string): string {
   return `
 <!DOCTYPE html>
 <html>
@@ -15,34 +16,7 @@ export function stringToBlockly(blocks: string, toolbox: string, workspace: stri
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Custom Blockly Block</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        background-color: #f9f9f9;
-      }
-      #blocklyDiv {
-        width: 800px;
-        height: 500px;
-        border: 1px solid #ddd;
-      }
-      button {
-        margin-top: 15px;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #0056b3;
-      }
+      ${cssStyles}
     </style>
   </head>
   <body>
