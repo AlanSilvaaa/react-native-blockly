@@ -10,7 +10,7 @@ blockly.createBlock({
   colour: 230,
   tooltip: 'Command to move forward',
   helpUrl: '',
-  code: 'return "Hello from the moveForward block!"'
+  code: 'return "Hello from the moveForward block!"',
 });
 blockly.createBlock({
   type: 'moveBackward',
@@ -27,7 +27,7 @@ blockly.createBlock({
   colour: 230,
   tooltip: 'Command to show an alert',
   helpUrl: '',
-  code: `return "alert('hello from alert block')"\n`
+  code: `return "alert('hello from alert block')"\n`,
 });
 
 config.setToolbox({
@@ -35,22 +35,22 @@ config.setToolbox({
   contents: [
     {
       kind: 'block',
-      type: 'moveForward'
+      type: 'moveForward',
     },
     {
       kind: 'block',
-      type: 'moveBackward'
+      type: 'moveBackward',
     },
     {
       kind: 'block',
-      type: 'alert'
-    }
-  ]
+      type: 'alert',
+    },
+  ],
 });
 
 config.setWorkspace({
   scrollbars: true,
-  trashcan: true
+  trashcan: true,
 });
 
 function onMessage(data: string) {

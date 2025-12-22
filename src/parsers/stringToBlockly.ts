@@ -6,7 +6,11 @@
  * @param workspace workspace string (JSON stringified workspace configuration)
  * @returns a complete HTML string ready to be loaded in the WebView
  */
-export function stringToBlockly(blocks: string, toolbox: string, workspace: string): string {
+export function stringToBlockly(
+  blocks: string,
+  toolbox: string,
+  workspace: string
+): string {
   return `
 <!DOCTYPE html>
 <html>

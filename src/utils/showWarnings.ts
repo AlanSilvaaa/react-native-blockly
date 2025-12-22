@@ -2,7 +2,7 @@ import type { Block, Toolbox } from '../types/blockly-types';
 
 /**
  * Validates if blocks and toolbox have matching pairs and shows warnings for mismatches
- * 
+ *
  * @param blocks - Array of block definitions
  * @param toolbox - Toolbox configuration
  */
@@ -13,7 +13,9 @@ export function blockInToolbox(blocks: Block[], toolbox: Toolbox | null): void {
 
   // If no toolbox is provided, show warning and return
   if (!toolbox) {
-    console.warn('No toolbox provided. Blocks will not be accessible in the workspace.');
+    console.warn(
+      'No toolbox provided. Blocks will not be accessible in the workspace.'
+    );
     return;
   }
 
@@ -56,7 +58,7 @@ export function blockInToolbox(blocks: Block[], toolbox: Toolbox | null): void {
 
 /**
  * Validates if blocks with custom code have a return statement and shows warnings for missing returns
- * 
+ *
  * @param blocks - Array of block definitions
  */
 export function noReturnStatement(blocks: Block[]): void {
@@ -67,7 +69,7 @@ export function noReturnStatement(blocks: Block[]): void {
     if (block.code && typeof block.code === 'string') {
       // Check if the code contains a return statement
       const hasReturnStatement = /\breturn\b/.test(block.code);
-      
+
       if (!hasReturnStatement) {
         warnings.push(
           `Block '${block.type}' has custom code but no return statement. This may cause unexpected behavior in code generation.`

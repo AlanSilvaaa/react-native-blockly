@@ -2,7 +2,7 @@ import type { Block, Toolbox, Workspace } from '../types/blockly-types';
 
 /**
  * Parses the blocks array to a string representation.
- * 
+ *
  * If the block has a 'code' property, it uses that as the code generation logic.
  * Otherwise, it defaults to returning a function call with the block type name.
  * e.g. for a block of type 'moveForward', it will generate code: `return 'moveForward()\n'`; if
