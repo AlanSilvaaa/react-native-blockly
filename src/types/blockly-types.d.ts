@@ -1,4 +1,4 @@
-import type { StandardBlockType } from '../constants/blockly-constants';
+import type { StandardBlockType } from '../utils/blocklyConstants';
 
 export type { StandardBlockType };
 

@@ -1,5 +1,5 @@
 import type { Block, Toolbox } from '../types/blockly-types';
-import { STANDARD_BLOCKLY_BLOCKS } from '../constants/blockly-constants';
+import { STANDARD_BLOCKLY_BLOCKS } from './blocklyConstants';
 
 /**
  * Validates if blocks and toolbox have matching pairs and shows warnings for mismatches
