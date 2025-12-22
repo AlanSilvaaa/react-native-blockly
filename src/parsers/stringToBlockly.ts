@@ -19,21 +19,21 @@ export function stringToBlockly(
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Custom Blockly Block</title>
     <style>
-      body {
+      html, body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+      body {
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        background-color: #f9f9f9;
       }
       #blocklyDiv {
-        width: 800px;
-        height: 500px;
-        border: 1px solid #ddd;
+        flex: 1;
+        width: 100%;
       }
       button {
         margin-top: 15px;

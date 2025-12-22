@@ -60,22 +60,28 @@ function onMessage(data: string) {
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <BlocklyView
-        Blockly={blockly}
-        Config={config}
-        onMessage={onMessage}
-        style={styles.blocklyView}
-      />
+    <View style={styles.outerContainer}>
+      <View style={styles.container}>
+        <BlocklyView
+          Blockly={blockly}
+          Config={config}
+          onMessage={onMessage}
+          style={styles.blocklyView}
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  outerContainer: {
     flex: 1,
-    // alignSelf: 'flex-start',
-    // width: '60%',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  container: {
+    width: '60%',
+    height: '60%',
   },
   blocklyView: {
     flex: 1,
