@@ -50,7 +50,6 @@ export function stringToBlockly(
     </style>
   </head>
   <body>
-    <h1>Custom Blockly Block Example</h1>
     <div id="blocklyDiv"></div>
     <button id="runCodeButton">Run Code</button>
 

@@ -1,3 +1,4 @@
+import { View, StyleSheet } from 'react-native';
 import BlocklyView, { Blockly, BlocklyViewConfig } from 'react-native-blockly';
 
 const blockly = new Blockly();
@@ -57,18 +58,26 @@ function onMessage(data: string) {
   console.log('Message from Blockly:', data);
 }
 
-// TODO: when wrapping the BlocklyView component into a <View> component
-// the webview does not render properly
 export default function App() {
   return (
-    <BlocklyView Blockly={blockly} Config={config} onMessage={onMessage} />
+    <View style={styles.container}>
+      <BlocklyView
+        Blockly={blockly}
+        Config={config}
+        onMessage={onMessage}
+        style={styles.blocklyView}
+      />
+    </View>
   );
 }
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    // alignSelf: 'flex-start',
+    // width: '60%',
+  },
+  blocklyView: {
+    flex: 1,
+  },
+});

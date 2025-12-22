@@ -1,5 +1,6 @@
 import type { Blockly } from '../classes/blockly';
 import type { BlocklyViewConfig } from '../classes/blocklyViewConfig';
+import type { StyleProp, ViewStyle } from 'react-native';
 
 /**
  * Props for the BlocklyView component
@@ -51,4 +52,20 @@ export type BlocklyViewProps = {
    * ```
    */
   onMessage?: (data: string) => void;
+
+  /**
+   * Optional style prop for the WebView container.
+   * Allows customization of the BlocklyView's dimensions and layout.
+   * Defaults to `{ flex: 1 }` if not provided.
+   *
+   * @example
+   * ```typescript
+   * <BlocklyView
+   *   Blockly={blockly}
+   *   Config={config}
+   *   style={{ flex: 1, backgroundColor: '#f0f0f0' }}
+   * />
+   * ```
+   */
+  style?: StyleProp<ViewStyle>;
 };

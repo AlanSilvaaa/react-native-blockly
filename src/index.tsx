@@ -26,6 +26,7 @@ export default function BlocklyView({
   Blockly,
   Config,
   onMessage,
+  style,
 }: BlocklyViewProps) {
   /**
    * parse the contents of the Blockly instance and Config to generate the HTML string
@@ -46,7 +47,7 @@ export default function BlocklyView({
     <WebView
       originWhitelist={['*']}
       source={{ html: blocklyHtml, baseUrl: 'file:///android_asset/' }}
-      style={{ flex: 1 }}
+      style={style || { flex: 1 }}
       onMessage={(event) => {
         // console.log('Message received from webview:', event.nativeEvent.data);
         if (onMessage) {
