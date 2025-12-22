@@ -1,4 +1,5 @@
 import type { Block, Toolbox } from '../types/blockly-types';
+import { STANDARD_BLOCKLY_BLOCKS } from '../constants/blockly-constants';
 
 /**
  * Validates if blocks and toolbox have matching pairs and shows warnings for mismatches
@@ -40,8 +41,12 @@ export function blockInToolbox(blocks: Block[], toolbox: Toolbox | null): void {
   });
 
   // Check for toolbox items that reference undefined blocks
+  // Exclude standard Blockly blocks from this check
   toolboxTypes.forEach((toolboxType) => {
-    if (!blockTypes.has(toolboxType)) {
+    if (
+      !blockTypes.has(toolboxType) &&
+      !STANDARD_BLOCKLY_BLOCKS.has(toolboxType)
+    ) {
       missingInBlocks.push(toolboxType);
       warnings.push(
         `Toolbox references block '${toolboxType}' but this block is not defined. This will cause runtime errors.`

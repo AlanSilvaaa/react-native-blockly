@@ -46,6 +46,10 @@ config.setToolbox({
       kind: 'block',
       type: 'alert',
     },
+    {
+      kind: 'block',
+      type: 'controls_if',
+    },
   ],
 });
 

@@ -1,5 +1,9 @@
+import type { StandardBlockType } from '../constants/blockly-constants';
+
+export type { StandardBlockType };
+
 export type Block = {
-  type: string;
+  type: string | StandardBlockType;
   message0?: string;
   colour?: number;
   tooltip?: string;
@@ -14,7 +18,7 @@ export type Toolbox = {
   kind: string;
   contents: Array<{
     kind: string;
-    type: string;
+    type: string | StandardBlockType;
   }>;
 };
 
