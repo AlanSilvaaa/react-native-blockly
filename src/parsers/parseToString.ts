@@ -1,4 +1,6 @@
 import type { Block, Toolbox, Workspace } from '../types/blockly-types';
+import type { ButtonConfig } from '../types/blockly-view-types';
+import type { CSSProperties } from 'react';
 
 /**
  * Parses the blocks array to a string representation.
@@ -53,4 +55,38 @@ export function parseToolboxToString(toolbox: Toolbox): string {
  */
 export function parseWorkspaceToString(workspace: Workspace): string {
   return JSON.stringify(workspace);
+}
+
+/**
+ * Converts a CSSProperties object to an inline style string
+ *
+ * @param styles CSS properties object
+ * @returns inline style string
+ */
+export function cssObjectToString(styles: CSSProperties): string {
+  return Object.entries(styles)
+    .map(([key, value]) => {
+      // Convert camelCase to kebab-case
+      const kebabKey = key.replace(/([A-Z])/g, '-$1').toLowerCase();
+      return `${kebabKey}: ${value}`;
+    })
+    .join('; ');
+}
+
+/**
+ * Parses the button configuration to string representation.
+ *
+ * @param buttonConfig - button configuration object
+ * @returns an object with text and style as strings
+ */
+export function parseButtonConfigToString(buttonConfig: ButtonConfig): {
+  text: string;
+  style: string;
+} {
+  const text = buttonConfig?.text ?? '';
+  const style = buttonConfig?.style
+    ? cssObjectToString(buttonConfig.style)
+    : '';
+
+  return { text, style };
 }

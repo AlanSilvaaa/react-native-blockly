@@ -1,15 +1,20 @@
+import { DEFAULT_BUTTON_TEXT, DEFAULT_BUTTON_STYLE } from '../utils/defaults';
+import { cssObjectToString } from './parseToString';
+
 /**
  * Main function to convert all of the characteristics of a Blockly instance into a string
  *
  * @param blocks blocks string
  * @param toolbox toolbox string
  * @param workspace workspace string (JSON stringified workspace configuration)
+ * @param buttonConfig parsed button configuration with text and style as strings
  * @returns a complete HTML string ready to be loaded in the WebView
  */
 export function stringToBlockly(
   blocks: string,
   toolbox: string,
-  workspace: string
+  workspace: string,
+  buttonConfig: { text: string; style: string }
 ): string {
   return `
 <!DOCTYPE html>
@@ -35,23 +40,11 @@ export function stringToBlockly(
         flex: 1;
         width: 100%;
       }
-      button {
-        margin-top: 15px;
-        padding: 10px 20px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      button:hover {
-        background-color: #0056b3;
-      }
     </style>
   </head>
   <body>
     <div id="blocklyDiv"></div>
-    <button id="runCodeButton">Run Code</button>
+    <button id="runCodeButton" style="${buttonConfig.style || cssObjectToString(DEFAULT_BUTTON_STYLE)}">${buttonConfig.text || DEFAULT_BUTTON_TEXT}</button>
 
     <!-- Import required Blockly packages -->
     <script src="https://unpkg.com/blockly/blockly_compressed.js"></script>

@@ -1,6 +1,24 @@
 import type { Blockly } from '../classes/blockly';
 import type { BlocklyViewConfig } from '../classes/blocklyViewConfig';
 import type { StyleProp, ViewStyle } from 'react-native';
+import type { CSSProperties } from 'react';
+
+/**
+ * Configuration options for the run code button
+ */
+export interface ButtonConfig {
+  /**
+   * Text to display on the button
+   * @default 'Run Code'
+   */
+  text?: string;
+
+  /**
+   * CSS styles for the button as an object
+   * @example { backgroundColor: 'red', color: 'white', padding: '10px' }
+   */
+  style?: CSSProperties;
+}
 
 /**
  * Props for the BlocklyView component
