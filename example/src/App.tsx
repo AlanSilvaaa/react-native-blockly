@@ -1,4 +1,4 @@
-import { View, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import BlocklyView, { Blockly, BlocklyViewConfig } from 'react-native-blockly';
 
 const blockly = new Blockly();
@@ -65,6 +65,8 @@ function onMessage(data: string) {
 export default function App() {
   return (
     <View style={styles.outerContainer}>
+      <Text style={styles.h1}>React Native Blockly Example</Text>
+
       <View style={styles.container}>
         <BlocklyView
           Blockly={blockly}
@@ -78,14 +80,18 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  h1: {
+    fontSize: 32,
+    fontWeight: 'bold',
+  },
   outerContainer: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },
   container: {
-    width: '60%',
-    height: '60%',
+    width: '80%',
+    height: '80%',
   },
   blocklyView: {
     flex: 1,

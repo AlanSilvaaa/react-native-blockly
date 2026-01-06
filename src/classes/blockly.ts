@@ -6,8 +6,6 @@ import type { Block } from '../types/blockly-types';
 export class Blockly {
   blocks: Block[] = [];
 
-  // TODO: create a new method called createBlocks that takes an array of Block objects
-  // and adds them to the blocks array
   createBlocks(blocks: Block[]): void {
     this.blocks.push(...blocks);
   }
