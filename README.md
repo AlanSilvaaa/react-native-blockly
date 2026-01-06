@@ -10,8 +10,7 @@
 [![Build Web](https://img.shields.io/github/actions/workflow/status/AlanSilvaaa/react-native-blockly/ci.yml?branch=main&label=build%20web&logo=expo)](https://github.com/AlanSilvaaa/react-native-blockly/actions/workflows/ci.yml)
 
 </div>
-
-npm package that adds Google's [Blockly](https://developers.google.com/blockly) visual programming editor into React Native.
+npm package that serves as a bridge between React Native and Google's [Blockly](https://developers.google.com/blockly) UNPKG version
 
 ## General Overview
 
@@ -23,6 +22,9 @@ This library bridges Google's Blockly visual programming framework with React Na
 - **HTML Generation**: Automatically transpile block definitions and configurations into executable HTML/JavaScript
 - **Validation System**: Built-in validation to ensure block-toolbox consistency and prevent runtime errors
 - **WebView Integration**: Seamless embedding of Blockly workspace within React Native components using react-native-webview
+
+> [!IMPORTANT]
+> Beause we are using the UNPKG version, somethings may not work the way the npm version of Blockly does, as stated by Google [here](https://developers.google.com/blockly/guides/get-started/get-the-code#unpkg).
 
 ## Installation
 use npm or yarn to install the package:
