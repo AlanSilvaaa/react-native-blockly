@@ -1,7 +1,7 @@
 {
   "name": "react-native-blockly",
   "version": "0.1.0",
-  "description": "Blockly implementation on react native using webview.",
+  "description": "npm package that serves as a bridge between React Native and Google's Blockly UNPKG version",
   "source": "./src/index.tsx",
   "main": "./lib/module/index.js",
   "exports": {

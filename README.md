@@ -11,7 +11,7 @@
 
 </div>
 
-npm package that serves as a bridge between React Native and Google's [Blockly](https://developers.google.com/blockly) UNPKG version
+npm package that serves as a bridge between React Native and Google's [Blockly](https://developers.google.com/blockly) UNPKG version.
 
 ## General Overview
 
@@ -74,6 +74,22 @@ export default function App() {
 
 To see more examples, check the [examples directory](./example).
 
+## Running the Example App
+
+To run the example, first, clone the repo:
+```bash
+git https://github.com/AlanSilvaaa/react-native-blockly
+```
+
+Then, navigate to the project folder and install the dependencies. This project uses yarn, so run:
+```bash
+yarn install
+```
+
+Finally, just execute this command from the root of the project:
+```bash
+yarn run example android
+```
 
 ## Contributing
 
