@@ -1,5 +1,8 @@
 import type { Block, Toolbox } from '../types/blockly-types';
-import { STANDARD_BLOCKLY_BLOCKS } from './blocklyConstants';
+import {
+  STANDARD_BLOCKLY_BLOCKS,
+  type StandardBlockType,
+} from './blocklyConstants';
 
 /**
  * Validates if blocks and toolbox have matching pairs and shows warnings for mismatches
@@ -45,7 +48,7 @@ export function blockInToolbox(blocks: Block[], toolbox: Toolbox | null): void {
   toolboxTypes.forEach((toolboxType) => {
     if (
       !blockTypes.has(toolboxType) &&
-      !STANDARD_BLOCKLY_BLOCKS.has(toolboxType)
+      !STANDARD_BLOCKLY_BLOCKS.has(toolboxType as StandardBlockType)
     ) {
       missingInBlocks.push(toolboxType);
       warnings.push(
