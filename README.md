@@ -10,6 +10,7 @@
 [![Build Web](https://img.shields.io/github/actions/workflow/status/AlanSilvaaa/react-native-blockly/ci.yml?branch=main&label=build%20web&logo=expo)](https://github.com/AlanSilvaaa/react-native-blockly/actions/workflows/ci.yml)
 
 </div>
+
 npm package that serves as a bridge between React Native and Google's [Blockly](https://developers.google.com/blockly) UNPKG version
 
 ## General Overview
